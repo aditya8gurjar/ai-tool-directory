@@ -1,0 +1,9 @@
+node_modules/
+venv/
+.env
+.env.local
+__pycache__/
+*.pyc
+.next/
+ngrok.exe
+*.exe
