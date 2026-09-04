@@ -1,7 +1,6 @@
 // frontend/lib/api.ts
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
 
-// Custom headers to bypass Ngrok's free tier browser warning
 const ngrokHeaders = {
   "ngrok-skip-browser-warning": "true",
   "Content-Type": "application/json"
@@ -14,7 +13,7 @@ export async function fetchTools(limit = 100, category = "") {
     
   const res = await fetch(url, { 
     headers: ngrokHeaders,
-    next: { revalidate: 60 } // Cache for 60 seconds to make it faster
+    next: { revalidate: 60 }
   });
   if (!res.ok) throw new Error("Failed to fetch tools");
   return res.json();
